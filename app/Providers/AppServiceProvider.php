@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Inertia\Inertia;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,5 +21,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        Inertia::share([
+            'nav' => [
+                ['name' => 'Dashboard', 'route' => 'dashboard', 'group' => 'dashboard'],
+            ],
+        ]);
     }
 }
